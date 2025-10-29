@@ -1,0 +1,24 @@
+<launch>
+    
+    <group ns="plane">
+        <node pkg="race" type="plane.py" name="cone_history_visualizer" />
+    </group>
+    <group ns="marker">
+        <node pkg="race" type="marker.py" name="basic_shapes" />
+    </group>
+    <group ns="cone_marker">
+        <node pkg="paper" type="cone_marker.py" name="ConeMarker" />
+    </group>
+    
+    <group ns="midpoint_marker">
+        <node pkg="paper" type="midpoint_marker.py" name="PathMarker" />
+    </group>
+    <group ns="path_planning">
+        <node pkg="paper" type="path_planning.py" name="Path_Planning" />
+    </group>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /home/satwik/Desktop/p.rviz" />
+    
+    <include file="$(find robot_control)/launch/rqt_robot_control.launch" />
+    <include file="$(find ground_removal)/launch/main.launch" />
+  
+</launch>
